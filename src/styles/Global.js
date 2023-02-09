@@ -1,6 +1,7 @@
 import { createGlobalStyle } from "styled-components";
 
-import { media, rem } from "utils/styles";
+import { rem } from "utils/styles";
+import { breakpoints } from "styles/Breakpoints";
 
 export const GlobalStyles = createGlobalStyle`
   * {
@@ -129,26 +130,42 @@ export const GlobalStyles = createGlobalStyle`
   i {
     font-style: normal;
   }
+  .invisibleLink {
+    opacity: 0;
+    font-size: 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  #tidio-chat-iframe[style*="width: 94px"]{
+  display: none !important;
+  }
   
   :root {
     --font: 'Inter', sans-serif;
     --side-padding: ${rem(24)};
-    ${media("tablet", `--side-padding: ${rem(16)};`)}
+    @media ${breakpoints.notDesktop} {
+      --side-padding: ${rem(16)}
+    }
   }
   html {
     font: ${({ theme }) => `10px / 1.2 ${theme.font}`};
-    color: ${({ theme }) => theme.styles.text};
-    ${media("tablet", `font-size: 8.5px;`)}
-  
+    color: ${({ theme }) => theme.colors.text};
+    @media ${breakpoints.notDesktop} {
+      font-size: 8.5px;
+    }
   }
   body {
     transition: background 200ms;
-    color: ${({ theme }) => theme.styles.text};
+    color: ${({ theme }) => theme.colors.text};
     font-size: ${rem(16)};
     -webkit-font-smoothing: antialiased;
     -webkit-tap-highlight-color: transparent;
     user-select: none;
-    background: ${({ theme }) => theme.styles.background};
+    background: ${({ theme }) => theme.colors.background};
   }
   main {
     padding: 0 var(--side-padding);

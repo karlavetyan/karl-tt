@@ -18,28 +18,36 @@ const brand = {
 
 export const light = {
   font,
-  styles: {
+  isDark: false,
+  colors: {
     ...brand,
     background: "#ffffff",
+    background90: rgba("#ffffff", 0.9),
+    background60: rgba("#ffffff", 0.6),
     text: "#212121",
     footer: "#212121",
     footerText: "#ffffff",
     accent: "#9B9591",
     accentDark: "#6F6F6F",
-    accentLight: "#F5F5F5"
+    accentLight: "#F5F5F5",
+    accentSoft: "#E2E0DF"
   }
 };
 
 export const dark = {
   font,
-  styles: {
+  isDark: true,
+  colors: {
     ...brand,
     background: "#171717",
+    background90: rgba("#171717", 0.9),
+    background60: rgba("#171717", 0.6),
     text: "#ffffff",
     footer: "#1d1d1d",
     footerText: "#ffffff",
     accent: "#868686",
     accentDark: "#5b5b5b",
-    accentLight: "#2e2e2e"
+    accentLight: "#2e2e2e",
+    accentSoft: "#444444"
   }
 };

@@ -15,12 +15,12 @@ const SliderComponent = ({ data = [] }) => {
   return (
     <Slider>
       <Carousel {...settings}>
-        {data.map(({ image, buttonLink, buttonText, title }) => (
-          <SliderItem>
+        {data.map(({ image, buttonLink, buttonText, title }, index) => (
+          <SliderItem key={index}>
             <img src={image} alt={title} />
             <div className="content">
               <h3>{title}</h3>
-              <Button link="#">{buttonText}</Button>
+              <Button link={buttonLink}>{buttonText}</Button>
             </div>
           </SliderItem>
         ))}

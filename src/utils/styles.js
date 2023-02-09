@@ -18,18 +18,5 @@ export const hover = values => {
 };
 
 export const linkLine = color => {
-  return `
-  border-bottom: ${rem(1)} solid ${rgba(color, 0.3)};
-  `;
-};
-
-export const media = (screen, values) => {
-  const breakpoints = {
-    mobile: "(max-width: 480px)",
-    notMobile: "(min-width: 481px)",
-    desktop: "(min-width: 1025px)",
-    tablet: "(min-width: 481px) and (max-width: 1024px)"
-  };
-
-  return `@media screen and ${breakpoints[screen] || screen} { ${values} }`;
+  return `border-bottom: ${rem(1)} solid ${rgba(color, 0.3)};`;
 };

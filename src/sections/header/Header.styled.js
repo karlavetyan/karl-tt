@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 import { hover, linkLine, rem } from "utils/styles";
+import { breakpoints } from "styles/Breakpoints";
 
 export const Header = styled.header`
   padding: ${rem(6)} var(--side-padding);
@@ -9,12 +10,12 @@ export const Header = styled.header`
 
 export const SecondaryNav = styled.nav`
   padding: ${rem(6)} 0;
-  color: ${({ theme }) => theme.styles.primary};
+  color: ${({ theme }) => theme.colors.primary};
   line-height: ${rem(19)};
   display: flex;
   gap: ${rem(14)};
   & > a {
-    ${({ theme }) => linkLine(theme.styles.primary)};
+    ${({ theme }) => linkLine(theme.colors.primary)};
     ${hover("opacity: 0.7")}
   }
 `;
@@ -30,7 +31,7 @@ export const PrimaryNav = styled.nav`
   gap: ${rem(19)};
   font-size: ${rem(22)};
   & > a {
-    ${({ theme }) => linkLine(theme.styles.text)};
+    ${({ theme }) => linkLine(theme.colors.text)};
     ${hover("opacity: 0.7")}
   }
 `;
@@ -46,10 +47,10 @@ export const Menu = styled.div`
     transition: color 400ms;
     ${({ theme }) =>
       hover(
-        `color: ${theme.styles.primary}; > i { color: ${theme.styles.primary} }`
+        `color: ${theme.colors.primary}; > i { color: ${theme.colors.primary} }`
       )}
     i {
-      color: ${({ theme }) => theme.styles.accent};
+      color: ${({ theme }) => theme.colors.accent};
       font-size: ${rem(30)};
       position: relative;
       transition: color 400ms;
@@ -60,14 +61,14 @@ export const Menu = styled.div`
         top: ${rem(-10)};
         right: ${rem(-10)};
         font-family: ${({ theme }) => theme.font};
-        color: ${({ theme }) => theme.styles.primaryRc};
-        background: ${({ theme }) => theme.styles.primary};
+        color: ${({ theme }) => theme.colors.primaryRc};
+        background: ${({ theme }) => theme.colors.primary};
         padding: ${rem(5)};
         text-align: center;
         min-width: ${rem(20)};
         border-radius: ${rem(12)};
         box-shadow: ${({ theme }) =>
-          `0 0 0 ${rem(2)} ${theme.styles.primary20}`};
+          `0 0 0 ${rem(2)} ${theme.colors.primary20}`};
       }
     }
   }
@@ -76,7 +77,7 @@ export const Menu = styled.div`
 export const ThemeSwitcher = styled.div`
   width: ${rem(55)};
   height: ${rem(20)};
-  background: ${({ theme }) => theme.styles.accentLight};
+  background: ${({ theme }) => theme.colors.accentLight};
   padding: ${rem(2)};
   border-radius: ${rem(20)};
   position: relative;
@@ -103,7 +104,7 @@ export const ThemeSwitcher = styled.div`
     display: block;
     border-radius: 50%;
     transition: left 400ms;
-    background: ${({ theme }) => theme.styles.primary};
+    background: ${({ theme }) => theme.colors.primary};
   }
 `;
 
@@ -117,17 +118,21 @@ export const Content = styled.div`
     font-size: ${rem(35)};
     display: inline-flex;
   }
+  @media ${breakpoints.mobile} {
+    margin: ${rem(16)} 0 0;
+    padding: 0;
+  }
 `;
 
 export const ContactNumber = styled.a`
   font-size: ${rem(22)};
-  color: ${({ theme }) => theme.styles.primary};
+  color: ${({ theme }) => theme.colors.primary};
   transition: color 400ms;
-  ${({ theme }) => hover(`color: ${theme.styles.primaryDark}`)}
+  ${({ theme }) => hover(`color: ${theme.colors.primaryDark}`)}
   > i {
     margin: 0 ${rem(8)} 0 0;
   }
   > span {
-    ${({ theme }) => linkLine(theme.styles.primary)};
+    ${({ theme }) => linkLine(theme.colors.primary)};
   }
 `;
