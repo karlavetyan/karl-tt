@@ -10,7 +10,8 @@ export const Button = styled.button`
     withShadow && `box-shadow: 0 ${rem(4)} ${rem(11)} rgba(33, 33, 33, 0.35)`};
   font-weight: 700;
   font-size: ${({ isSmall }) => rem(!isSmall ? 22 : 16)};
-  border-radius: ${({ largeRadius }) => rem(largeRadius ? 30 : 16)};
+  border-radius: ${({ smallRadius, largeRadius }) =>
+    rem(largeRadius ? 30 : smallRadius ? 8 : 16)};
   padding: ${({ isSmall }) => `0 ${rem(isSmall ? 24 : 47)}`};
   min-height: ${({ isSmall }) => rem(isSmall ? 50 : 65)};
   min-width: ${({ isSmall }) => rem(isSmall ? 0 : 320)};

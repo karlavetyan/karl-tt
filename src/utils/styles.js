@@ -10,7 +10,7 @@ export const hover = values => {
   return `&:not(.active) {
       @media all and (hover: hover) {
         &:hover { ${values} }
-      },
+      };
       @media not all and (hover: hover) {
         &:active { ${values} }
       }

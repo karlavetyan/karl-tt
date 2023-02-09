@@ -8,7 +8,8 @@ const ButtonComponent = ({
   isSmall,
   largeRadius,
   withShadow,
-  target = "_self"
+  target = "_self",
+  ...rest
 }) => {
   return (
     <Button
@@ -16,6 +17,7 @@ const ButtonComponent = ({
       isSmall={isSmall}
       largeRadius={largeRadius}
       withShadow={withShadow}
+      {...rest}
     >
       {link && (
         <a href={link} target={target} className="invisibleLink">

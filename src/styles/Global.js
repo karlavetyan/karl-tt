@@ -166,6 +166,7 @@ export const GlobalStyles = createGlobalStyle`
     -webkit-tap-highlight-color: transparent;
     user-select: none;
     background: ${({ theme }) => theme.colors.background};
+    overflow: ${({ isActive }) => isActive && "hidden"};
   }
   main {
     padding: 0 var(--side-padding);

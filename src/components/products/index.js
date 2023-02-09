@@ -4,7 +4,7 @@ import { Products, ProductItem } from "components/products/Products.styled";
 const ProductsComponent = () => (
   <Products>
     {PRODUCTS.map(({ link, icon, name }) => (
-      <ProductItem>
+      <ProductItem key={name}>
         <a href={link} className="invisibleLink">
           {name}
         </a>
