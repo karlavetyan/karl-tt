@@ -24,14 +24,14 @@ import { GlobalStyles } from "styles/Global";
 const HeaderSection = ({ isDark, switchTheme }) => {
   const [isActive, setIsActive] = useState(false);
 
-  const Switcher = () => (
+  const switcher = (
     <ThemeSwitcher active={isDark} onClick={switchTheme}>
       <i />
       <span>{isDark ? "Dark" : "Light"}</span>
     </ThemeSwitcher>
   );
 
-  const TopNavigation = () => (
+  const topNavigation = (
     <SecondaryNav>
       {SECOND_NAV_ITEMS.map(({ name, link }) => (
         <a href={link} key={name}>
@@ -41,7 +41,7 @@ const HeaderSection = ({ isDark, switchTheme }) => {
     </SecondaryNav>
   );
 
-  const MainMenu = () => (
+  const mainMenu = (
     <Menu>
       {MENU_ITEMS.map(({ name, link, icon, count }) => (
         <a href={link} key={name} className="item">
@@ -52,7 +52,7 @@ const HeaderSection = ({ isDark, switchTheme }) => {
     </Menu>
   );
 
-  const BottomNavigation = () => (
+  const bottomNavigation = (
     <PrimaryNav>
       {PRIMARY_NAV_ITEMS.map(({ name, link }) => (
         <a href={link} key={name}>
@@ -62,7 +62,7 @@ const HeaderSection = ({ isDark, switchTheme }) => {
     </PrimaryNav>
   );
 
-  const Contact = () => (
+  const contact = (
     <ContactNumber href={`tel:${CONTACT_NUMBER.number}`}>
       <i className="icon-phone" />
       <span>{CONTACT_NUMBER.text}</span>
@@ -74,8 +74,8 @@ const HeaderSection = ({ isDark, switchTheme }) => {
       <GlobalStyles isActive={isActive} />
       <Header isActive={isActive}>
         <TwoColumn>
-          <Switcher />
-          <TopNavigation />
+          {switcher}
+          {topNavigation}
         </TwoColumn>
         <Content>
           <a href="/" className="logo">
@@ -86,8 +86,8 @@ const HeaderSection = ({ isDark, switchTheme }) => {
             icon="search"
             className="search"
           />
-          <MainMenu />
-          <Switcher />
+          {mainMenu}
+          {switcher}
           <Burger
             isActive={isActive}
             onClick={() => setIsActive(prev => !prev)}
@@ -96,16 +96,16 @@ const HeaderSection = ({ isDark, switchTheme }) => {
           </Burger>
         </Content>
         <TwoColumn>
-          <BottomNavigation />
-          <Contact />
+          {bottomNavigation}
+          {contact}
         </TwoColumn>
       </Header>
       <MobileMenu isActive={isActive}>
-        <TopNavigation />
+        {topNavigation}
         <Input placeholder="Product SKU, Name…" icon="search" />
-        <MainMenu />
-        <BottomNavigation />
-        <Contact />
+        {mainMenu}
+        {bottomNavigation}
+        {contact}
       </MobileMenu>
     </>
   );

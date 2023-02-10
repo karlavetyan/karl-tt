@@ -246,6 +246,7 @@ export const Header = styled.header`
   padding: ${rem(6)} var(--side-padding) ${rem(17)};
   background: ${({ theme }) => theme.colors.background};
   position: relative;
+  transition: background 200ms;
   @media ${breakpoints.notDesktop} {
    ${SecondaryNav}, ${PrimaryNav}, ${ContactNumber}, ${Menu}, .search{
      display: none;
