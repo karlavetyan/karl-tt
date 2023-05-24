@@ -10,10 +10,8 @@ const { isError, message } = getStorage("error") || {};
 const { idInstance, apiTokenInstance } = getStorage() || {};
 
 const LoginPage = () => {
-  const [id, setId] = useState("1101824282" || idInstance);
-  const [token, setToken] = useState(
-    "07036b4822c54b5c90964d9d3523da377d3443975d83440da7" || apiTokenInstance
-  );
+  const [id, setId] = useState(idInstance);
+  const [token, setToken] = useState(apiTokenInstance);
 
   const handleLogin = () => {
     setStorage({ idInstance: id, apiTokenInstance: token });

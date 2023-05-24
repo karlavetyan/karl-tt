@@ -9,7 +9,7 @@ import Button from "components/button";
 import "react-phone-input-2/lib/style.css";
 
 const NewContact = ({ isOpen, onClick, addNewContact, contactList }) => {
-  const [phone, setPhone] = useState("3749311672");
+  const [phone, setPhone] = useState("7");
   const [format, setFormat] = useState(null);
   const [error, setError] = useState(null);
 
