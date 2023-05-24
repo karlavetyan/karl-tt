@@ -1,0 +1,94 @@
+@import "../../assets/scss/core";
+
+.left-side {
+  width: rem(400);
+  border-right: rem(1) solid c(text, 0.1);
+  height: 100%;
+  position: relative;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+.user-block {
+  display: flex;
+  gap: rem(10);
+  align-items: center;
+  img {
+    width: rem(40);
+  }
+  p {
+    font-size: rem(14);
+  }
+}
+.new-contact {
+  width: 100%;
+  height: 100%;
+  background: c(bg);
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 5;
+  transition: transform 400ms;
+  transform: translateX(-100%);
+  display: flex;
+  flex-direction: column;
+  &.isOpen {
+    transform: translateX(0);
+  }
+  .form {
+    padding: rem(12);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1;
+    .icon-phone {
+      font-size: rem(80);
+      color: c(primary, 0.5);
+      margin: 0 auto rem(40);
+    }
+    .label {
+      margin: 0 0 rem(10);
+      font-size: rem(14);
+    }
+    .error-message {
+      margin: rem(20) 0;
+      font-size: rem(13);
+    }
+  }
+}
+.contact-list {
+  display: flex;
+  flex-direction: column;
+  padding: rem(1) 0 0;
+  li {
+    padding: rem(20);
+    cursor: pointer;
+    &.selected {
+      pointer-events: none;
+      background: c(primary, 0.3);
+    }
+    @include hover {
+      background: c(primary, 0.1);
+    }
+    .name {
+      margin: 0 0 rem(5);
+      opacity: 0.7;
+    }
+    & + li {
+      border-top: rem(1) solid c(text, 0.06);
+    }
+  }
+}
+.empty-contacts {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: c(text, 0.6);
+  .icon-empty {
+    font-size: rem(80);
+    color: c(primary, 0.5);
+    margin: 0 auto rem(40);
+  }
+}

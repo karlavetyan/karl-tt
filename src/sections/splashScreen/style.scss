@@ -1,0 +1,46 @@
+@import "../../assets/scss/core";
+
+.splash {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  transition: all 800ms ease-in-out;
+  &.hide {
+    animation: fadeOut 800ms forwards;
+    @keyframes fadeOut {
+      from {
+        opacity: 1;
+      }
+      to {
+        opacity: 0;
+      }
+    }
+  }
+  > i {
+    font-size: rem(60);
+    background: linear-gradient(
+      to left,
+      #{c(text, 0.2)} 20%,
+      #{c(text, 0.5)} 40%,
+      #{c(text, 0.5)} 60%,
+      #{c(text, 0.2)} 80%
+    );
+    background-size: 200% auto;
+    color: c(text, 0.2);
+    background-clip: text;
+    text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 2s linear infinite reverse;
+    @keyframes shine {
+      to {
+        background-position: 200% center;
+      }
+    }
+  }
+  .name {
+    font-size: rem(18);
+  }
+}

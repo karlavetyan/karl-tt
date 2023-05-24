@@ -1,0 +1,94 @@
+input {
+  background: c(main-light);
+  width: 100%;
+  border-radius: rem(4);
+  padding: rem(12) rem(14);
+  @include placeholder {
+    color: c(text, 0.5);
+  }
+  & + input,
+  & + button {
+    margin: rem(10) 0 0;
+  }
+}
+button {
+  height: rem(36);
+  background: c(primary-dark);
+  padding: rem(6) rem(10);
+  border-radius: rem(4);
+  min-width: rem(140);
+  cursor: pointer;
+  font-size: rem(14);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @include hover {
+    opacity: 0.8;
+  }
+  &.loading {
+    pointer-events: none;
+    i {
+      font-size: rem(18);
+      opacity: 0.8;
+      animation: loading 700ms linear infinite;
+      @keyframes loading {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+    }
+  }
+}
+
+#root .react-tel-input {
+  & + button {
+    margin: rem(10) 0 0;
+  }
+  .flag-dropdown {
+    border: none;
+    background: c(text, 0.1);
+    .arrow {
+      &.up {
+        border-bottom-color: c(text, 0.5);
+      }
+      &:not(.up) {
+        border-top-color: c(text, 0.5);
+      }
+    }
+    .selected-flag {
+      background: none !important;
+    }
+    @include hover {
+      background: c(text, 0.2);
+    }
+  }
+  .country-list {
+    width: rem(376);
+    background: c(main-dark);
+    .country {
+      .dial-code {
+        color: c(text, 0.7);
+        font-size: rem(13);
+      }
+      .country-name {
+        font-size: rem(13);
+      }
+      &.highlight {
+        background: c(primary, 0.6) !important;
+      }
+      @include hover {
+        background: c(primary, 0.2) !important;
+      }
+    }
+  }
+  .form-control {
+    border: none;
+    background: c(main-light);
+    width: 100%;
+  }
+}
+.error-message {
+  margin: rem(10) 0 rem(4);
+  text-align: center;
+  color: c(danger);
+}

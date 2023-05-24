@@ -1,0 +1,85 @@
+@use "sass:math";
+
+$colors: (
+  primary: #00a884,
+  primary-dark: #599389,
+  primary-sc: #ffffff,
+  bg: #111b21,
+  main-light: #202c33,
+  main-dark: #111b21,
+  text: #ffffff,
+  danger: #ec2247
+);
+
+@function c($color, $opacity: 1) {
+  @if $opacity == 1 {
+    @return var(--#{$color});
+  }
+  @return rgba(var(--#{$color}-rgb), $opacity);
+}
+@mixin placeholder {
+  $prefixList: "::-webkit-input", ":-moz", "::-moz", ":-ms-input";
+  @each $prefix in $prefixList {
+    &#{$prefix}-placeholder {
+      @content;
+      opacity: 1;
+    }
+  }
+}
+@function rem($size) {
+  $remSize: math.div($size, 10);
+  @if $size == 1 {
+    @return #{$size}px;
+  }
+  @return #{$remSize}rem;
+}
+@function sc($color, $opacity: 1) {
+  @if ($color == b) {
+    $color: background;
+  }
+  @if $opacity == 1 {
+    @return var(--#{$color}-sc);
+  } @else {
+    @return rgba(var(--#{$color}-sc-rgb), $opacity);
+  }
+}
+@each $name, $color in $colors {
+  $colors: map-merge(
+    $colors,
+    (#{$name + "-rgb"}: #{red($color), green($color), blue($color)})
+  );
+}
+@mixin scroll-y($scroll: auto) {
+  $border-radius: 0;
+  $width: 6px;
+  $scroll-main-color: #{c(text, 0.1)};
+  $scroll-main-thumb-color: #{c(text, 0.2)};
+
+  overflow-y: $scroll;
+  overflow-x: hidden;
+  scrollbar-track-color: $scroll-main-color;
+  scrollbar-shadow-color: $scroll-main-color;
+  scrollbar-base-color: $scroll-main-thumb-color;
+  scrollbar-arrow-color: $scroll-main-thumb-color;
+  &::-webkit-scrollbar {
+    width: $width;
+    background: $scroll-main-color;
+    border-radius: $border-radius;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: $border-radius;
+    background: $scroll-main-thumb-color;
+  }
+}
+@mixin hover {
+  @media all and (hover: hover) {
+    &:hover {
+      @content;
+    }
+  }
+  @media not all and (hover: hover) {
+    &:active {
+      @content;
+    }
+  }
+}

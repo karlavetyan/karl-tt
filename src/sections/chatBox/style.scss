@@ -1,0 +1,123 @@
+@import "../../assets/scss/core";
+
+.empty-chat-box {
+  width: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: c(main-light);
+  color: c(text);
+  align-items: center;
+  justify-content: center;
+  font-weight: 200;
+  font-size: rem(30);
+}
+.chat-box {
+  width: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  .background {
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    background-color: c(main-dark);
+    background-size: 412.5px 749.25px;
+    background-image: url("../../assets/images/chat-bg.png");
+    background-repeat: repeat;
+    opacity: 0.07;
+  }
+  .chat-content {
+    display: flex;
+    flex-direction: column-reverse;
+    overflow-y: auto;
+    margin: auto 0 0;
+    max-height: 100%;
+    font-size: rem(14);
+    padding: rem(20);
+    @include scroll-y;
+    time {
+      font-size: rem(10);
+      display: block;
+      text-align: right;
+      opacity: 0.6;
+      margin: rem(3) 0 0;
+      line-height: 1;
+    }
+    .incoming,
+    .outgoing {
+      padding: rem(6) rem(10);
+      color: c(text);
+      border-radius: rem(6);
+      margin: 0 0 rem(6);
+      max-width: rem(400);
+      word-break: break-word;
+      white-space: pre-line;
+    }
+    .center {
+      background: c(main-dark);
+      padding: rem(10);
+      align-self: center;
+      margin: rem(10) 0;
+      color: c(text, 0.5);
+      border-radius: rem(6);
+      font-size: rem(12);
+      &.uppercase {
+        text-transform: uppercase;
+      }
+    }
+    .outgoing {
+      align-self: flex-end;
+      background: c(primary, 0.8);
+    }
+    .incoming {
+      align-self: flex-start;
+      background: c(main-light, 0.9);
+    }
+  }
+  .chat-input {
+    background: c(main-light);
+    padding: rem(10);
+    display: flex;
+    align-items: flex-end;
+    gap: rem(10);
+    position: relative;
+    .progress {
+      position: absolute;
+      top: rem(-3);
+      width: 100%;
+      left: 0;
+      margin: 0;
+      &.loaded div {
+        animation: line 500ms linear forwards;
+      }
+    }
+    .icon-send {
+      font-size: rem(30);
+      cursor: pointer;
+      color: c(text, 0.4);
+      margin: 0 0 rem(3);
+      @include hover {
+        color: c(text, 0.6);
+      }
+    }
+    .placeholder {
+      position: absolute;
+      z-index: 1;
+      color: c(text, 0.4);
+      font-size: rem(14);
+      left: rem(20);
+      top: rem(20);
+      pointer-events: none;
+    }
+    textarea {
+      flex: 1;
+      background: c(text, 0.06);
+      border-radius: rem(10);
+      resize: none;
+      padding: rem(10);
+      font-size: rem(14);
+    }
+  }
+}
